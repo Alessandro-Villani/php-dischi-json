@@ -4,6 +4,23 @@
     --secondarybg: rgb(6,19,31);
 }
 
-body {
+header {
+    height: 10vh;
+    background-color: var(--secondarybg);
+}
+
+header .nav-left a{
+    text-decoration: none;
+    color: var(--logo);
+}
+
+main{
+    height: 90vh;
     background-color: var(--mainbg);
+    overflow-y: auto;
+    color: white;
+}
+
+.disks .card {
+    background-color: var(--secondarybg);
 }
