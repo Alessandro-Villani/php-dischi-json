@@ -33,15 +33,18 @@
     </head>
     <body>
         <div id="root">
+            <!-- HEADER -->
             <header class="d-flex align-items-center">
                 <nav
                     class="container d-flex justify-content-between align-items-center"
                 >
+                    <!-- NAV LEFT LOGO -->
                     <nav class="nav-left">
                         <a href="#"
                             ><i class="fa-brands fa-spotify fa-3x"></i
                         ></a>
                     </nav>
+                    <!-- NAV RIGHT SELECT -->
                     <nav class="nav-right">
                         <select
                             class="form-select"
@@ -60,13 +63,16 @@
                     </nav>
                 </nav>
             </header>
+            <!-- MAIN -->
             <main class="pt-5">
+                <!-- LOADER -->
                 <div
                     v-if="isLoading"
                     class="loader d-flex justify-content-center align-items-center"
                 >
                     <i class="fa-solid fa-circle-notch fa-4x fa-spin"></i>
                 </div>
+                <!-- DISKS SECTION -->
                 <section v-if="!isLoading && !showInfo" class="disks container">
                     <div class="row row-cols-3">
                         <div
@@ -90,6 +96,7 @@
                         </div>
                     </div>
                 </section>
+                <!-- INFO CARD -->
                 <div
                     v-if="showInfo"
                     class="disk-info d-flex justify-content-center align-items-center"

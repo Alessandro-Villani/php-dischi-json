@@ -14,39 +14,45 @@ data(){
     }
 },
 methods: {
+
+    //Function to get disks
     getDisks(){
         this.isLoading = true;
         let params = {}
         if(this.selectedGenre){
-            console.log('inside');
             params = {
                 genre: this.selectedGenre
             }
         }
-        console.log('params');
-        console.log(params);
         axios.get(apiUri, {params}).then(res => {
-            console.log(res.data);
             this.disks = res.data;
             if(!this.selectedGenre) this.getGenres();
         }).catch(e => console.log(e)).then(() => {
             this.isLoading = false;
         })
     },
+
+    //Function to get genres from API disks
     getGenres(){
         this.disks.forEach(disk => {
             if(!this.genres.includes(disk.genre)) this.genres.push(disk.genre);
         });
     },
+
+    //Function for showing Disk Info on card click
     showDiskInfo(i){
         this.currentIndex = i;
         this.showInfo = true;
     },
+
+    //Function for closing Disk Info
     closeInfo(){
         this.showInfo = false;
     }
 },
 mounted(){
+    
+    //API call to get all disks in DB
     this.getDisks();
 }
 });

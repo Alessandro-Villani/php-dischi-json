@@ -1,8 +1,12 @@
+
+/* CUSTOM PROPERTIES */
 :root{
     --logo: rgb(23,215,95);
     --mainbg: rgb(29,45,60);
     --secondarybg: rgb(6,19,31);
 }
+
+/* HEADER */
 
 header {
     height: 10vh;
@@ -14,6 +18,8 @@ header .nav-left a{
     color: var(--logo);
 }
 
+/* MAIN */
+
 main{
     height: 90vh;
     background-color: var(--mainbg);
@@ -21,6 +27,8 @@ main{
     color: white;
     position: relative;
 }
+
+/* LOADER */
 
 .loader{
     position: absolute;
@@ -30,6 +38,8 @@ main{
     right: 0;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+/* DISKS SECTION */
 
 .disks .card {
     background-color: var(--secondarybg);
@@ -50,6 +60,8 @@ main{
     max-height: 100%;
     width: auto;
 }
+
+/* DISK INFO CARD */
 
 .disk-info {
     position: absolute;
