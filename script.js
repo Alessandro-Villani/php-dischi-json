@@ -28,7 +28,7 @@ methods: {
         axios.get(apiUri, {params}).then(res => {
             console.log(res.data);
             this.disks = res.data;
-            this.getGenres();
+            if(!this.selectedGenre) this.getGenres();
         }).catch(e => console.log(e)).then(() => {
             this.isLoading = false;
         })
