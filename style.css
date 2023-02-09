@@ -1,0 +1,9 @@
+:root{
+    --logo: rgb(23,215,95);
+    --mainbg: rgb(29,45,60);
+    --secondarybg: rgb(6,19,31);
+}
+
+body {
+    background-color: var(--mainbg);
+}
