@@ -43,14 +43,23 @@
                 </nav>
             </header>
             <main class="pt-5">
-                <section class="disks container">
+                <div
+                    v-if="isLoading"
+                    class="loader d-flex justify-content-center align-items-center"
+                >
+                    <i class="fa-solid fa-circle-notch fa-4x fa-spin"></i>
+                </div>
+                <section v-if="!isLoading && !showInfo" class="disks container">
                     <div class="row row-cols-3">
                         <div
                             v-for="(disk, i) in disks"
                             :key="i"
                             class="col d-flex justify-content-center mb-5"
                         >
-                            <div class="card text-center">
+                            <div
+                                class="card text-center"
+                                @click="showDiskInfo(i)"
+                            >
                                 <figure class="py-4 px-5 mb-0">
                                     <img :src="disk.poster" :alt="disk.title" />
                                 </figure>
@@ -63,6 +72,25 @@
                         </div>
                     </div>
                 </section>
+                <div
+                    v-if="showInfo"
+                    class="disk-info d-flex justify-content-center align-items-center"
+                >
+                    <i class="fa-solid fa-xmark fa-2x" @click="closeInfo"></i>
+                    <div class="card text-center">
+                        <figure class="py-4 px-5 mb-0">
+                            <img
+                                :src="disks[currentIndex].poster"
+                                :alt="disks[currentIndex].title"
+                            />
+                        </figure>
+                        <h4>{{ disks[currentIndex].title }}</h4>
+                        <address>
+                            <h5>{{ disks[currentIndex].author }}</h5>
+                            <h4>{{ disks[currentIndex].year }}</h4>
+                        </address>
+                    </div>
+                </div>
             </main>
         </div>
         <!-- JAVASCRIPT -->
