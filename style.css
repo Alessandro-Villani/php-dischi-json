@@ -21,6 +21,15 @@ main{
     color: white;
 }
 
+.disks figure {
+    height: 300px;
+}
+
+.disks figure img {
+    max-height: 100%;
+    width: auto;
+}
+
 .disks .card {
     background-color: var(--secondarybg);
 }
