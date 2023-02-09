@@ -34,11 +34,29 @@
     <body>
         <div id="root">
             <header class="d-flex align-items-center">
-                <nav class="container">
+                <nav
+                    class="container d-flex justify-content-between align-items-center"
+                >
                     <nav class="nav-left">
                         <a href="#"
                             ><i class="fa-brands fa-spotify fa-3x"></i
                         ></a>
+                    </nav>
+                    <nav class="nav-right">
+                        <select
+                            class="form-select"
+                            v-model="selectedGenre"
+                            @change="getDisks"
+                        >
+                            <option value="" selected>--No Filter--</option>
+                            <option
+                                v-for="(genre, i) in genres"
+                                :key="i"
+                                :value="genre"
+                            >
+                                {{ genre }}
+                            </option>
+                        </select>
                     </nav>
                 </nav>
             </header>
@@ -78,8 +96,9 @@
                 >
                     <i class="fa-solid fa-xmark fa-2x" @click="closeInfo"></i>
                     <div class="card text-center">
-                        <figure class="py-4 px-5 mb-0">
+                        <figure class="disk-info-figure py-4 px-5 mb-0">
                             <img
+                                class="img-fluid"
                                 :src="disks[currentIndex].poster"
                                 :alt="disks[currentIndex].title"
                             />

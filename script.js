@@ -8,18 +8,35 @@ data(){
         disks: [],
         isLoading: false,
         showInfo: false,
-        currentIndex: undefined
+        currentIndex: undefined,
+        genres: [],
+        selectedGenre: ''
     }
 },
 methods: {
     getDisks(){
         this.isLoading = true;
-        console.log(this.isLoading);
-        axios.get(apiUri).then(res => {
+        let params = {}
+        if(this.selectedGenre){
+            console.log('inside');
+            params = {
+                genre: this.selectedGenre
+            }
+        }
+        console.log('params');
+        console.log(params);
+        axios.get(apiUri, {params}).then(res => {
+            console.log(res.data);
             this.disks = res.data;
+            this.getGenres();
         }).catch(e => console.log(e)).then(() => {
             this.isLoading = false;
         })
+    },
+    getGenres(){
+        this.disks.forEach(disk => {
+            if(!this.genres.includes(disk.genre)) this.genres.push(disk.genre);
+        });
     },
     showDiskInfo(i){
         this.currentIndex = i;

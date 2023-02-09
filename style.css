@@ -42,11 +42,11 @@ main{
     transform: translateY(-20px);
 }
 
-.disks figure {
+.disks figure, .disk-info-figure {
     height: 300px;
 }
 
-.disks figure img {
+.disks figure img, .disk-info-figure img {
     max-height: 100%;
     width: auto;
 }
